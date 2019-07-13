@@ -1,24 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Card from './components/CardComponent'
+import Event from './components/EventComponent'
+import Data from './data/courses'
 
 function App() {
+  const heading = 'INSTAGRAM'
+  const myData = Data.map((data)=>{
+
+          return(
+
+            <Card title={data.title} text={data.content} button="Register" key={data.id} />
+          )
+  })
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="m-3">
+        <h3>{heading}</h3>
+        <Event />
     </div>
   );
 }
