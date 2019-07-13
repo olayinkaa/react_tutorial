@@ -13,7 +13,11 @@ class Form extends React.Component {
               aboutMe:'',
               isChecked:false,
               gender:'',
-              job:''
+              job:'',
+              christianity:false,
+              islam:false,
+              others:false
+    
         }
 
         this.handleChange = this.handleChange.bind(this)
@@ -29,7 +33,9 @@ class Form extends React.Component {
 
           */
 
-          e.target.type==='checkbox' ? this.setState({ [e.target.name] : e.target.checked}) : 
+          e.target.type==='checkbox' ? this.setState({ 
+              [e.target.name] : e.target.checked
+          }) : 
           this.setState({ [e.target.name] : e.target.value })
   }
  
@@ -81,17 +87,43 @@ class Form extends React.Component {
                   rows={3} 
                   defaultValue={""} />
                 </div>     
-                <div className="form-group form-check">
-                  <input 
-                  type="checkbox" 
-                  name="isChecked"
-                  className="form-check-input" 
-                  id="exampleCheck1" 
-                  checked={this.state.isChecked}
-                  onChange={this.handleChange} />
-                  <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
-                </div>
-
+                <fieldset className="form-group">
+                  <div className="row">
+                    <legend className="col-form-label col-sm-2 pt-0">Religion</legend>
+                    <div className="col-sm-10">
+                      <div className="form-check form-check-inline">
+                        <input 
+                        className="form-check-input" 
+                        type="checkbox" 
+                        name="christianity" 
+                        onChange={this.handleChange}
+                        checked={this.state.christianity}
+                        defaultValue="christianity" />
+                        <label className="form-check-label" htmlFor="christianity">christianity</label>
+                      </div>
+                      <div className="form-check form-check-inline">
+                        <input 
+                        className="form-check-input" 
+                        type="checkbox" 
+                        name="islam" 
+                        onChange={this.handleChange}
+                        checked={this.state.islam}
+                        defaultValue="islam" />
+                        <label className="form-check-label" htmlFor="islam">Islam</label>
+                      </div>
+                      <div className="form-check form-check-inline">
+                        <input 
+                        className="form-check-input" 
+                        type="checkbox"
+                        name="others" 
+                        onChange={this.handleChange}
+                        checked={this.state.others}
+                        defaultValue="others" />
+                        <label className="form-check-label" htmlFor="others">Others</label>
+                      </div>
+                    </div>
+                  </div>
+              </fieldset>
                 <fieldset className="form-group">
                     <div className="row">
                       <legend className="col-form-label col-sm-2 pt-0">Gender</legend>
