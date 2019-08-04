@@ -40,8 +40,11 @@ class Form extends React.Component {
   }
  
   render(){
-
-   
+  /*
+    {firstName,lastName} = this.state
+    so use this instead:
+    value={firstName}
+   */
       return(
 
         
